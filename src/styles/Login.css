@@ -1,0 +1,110 @@
+.login {
+    background-color: #fd8340;
+    height: 695px;
+    position: fixed;
+    width: 1576px;
+    overflow: hidden;
+}
+
+.login-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.login-carousel {
+    margin-left: 200px;
+    margin-top: 50px;
+    width: 600px;
+    height: 600px;
+    position: relative;
+}
+
+.login-carousel-element {
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+    object-fit: fill;
+}
+
+.login-data {
+    position: absolute;
+    top: 100px;
+    right: 300px;
+    background-color: white;
+    width: 600px;
+    height: 500px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-head-wrapper {
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-head-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-head-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.login-form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center!important;
+}
+
+.login-input {
+    margin-bottom: 20px;
+}
+
+.login-btn {
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 100%;
+    background: #ff6916 !important;
+    color: #fff !important;
+}
+
+.login-btn:hover {
+    color: #ff6916 !important;
+    background: #fff !important;
+    border-color: #f5faff !important;
+}
+
+.login-without-account{
+    text-decoration: none;
+    color: #004100;
+    font-size: 14px;
+}
+
+.login-without-account:hover{
+    color: #00410075;
+}
+
+.login-copyright {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+    margin-top: 50px;
+}

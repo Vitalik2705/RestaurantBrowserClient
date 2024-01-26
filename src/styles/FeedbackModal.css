@@ -1,0 +1,27 @@
+.feedback-modal-header {
+    margin-bottom: 10px;
+}
+
+.feedback-modal-rate {
+    margin-top: 10px;
+}
+
+.feedback-modal-textarea {
+    height: 120px;
+    width: 400px;
+}
+
+.feedback-modal-button {
+    color: #fff !important;
+    background: #ff6916 !important;
+    border-color: #f5faff !important;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.feedback-modal-button:hover {
+    color: #ff6916 ;
+    background: #fff ;
+    border-color: #f5faff ;
+}
+

@@ -1,0 +1,11 @@
+{
+  "cuisineTypes": {
+    "ITALIAN": "Італійська",
+    "CHINESE": "Китайська",
+    "MEXICAN": "Мексиканська",
+    "INDIAN": "Індійська",
+    "UKRAINIAN": "Українська",
+    "INTERNATIONAL": "Інтернаціональна",
+    "AMERICAN": "Американська"
+  }
+}

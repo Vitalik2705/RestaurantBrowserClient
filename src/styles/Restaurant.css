@@ -1,0 +1,113 @@
+.restaurant {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    padding: 10px;
+    background-color: #f8cdbb;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.restaurant-image img{
+    height: 300px;
+    width: 100%;
+    border: 3px solid;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+}
+
+.restaurant-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.restaurant-name {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    font-family: cursive;
+    line-height: 1.5;
+    margin: 5px !important;
+}
+
+.restaurant-favorite-button {
+    background-color: yellow;
+}
+
+.restaurant-favorite-button:hover {
+    background-color: #ffda4a!important;
+}
+
+.restaurant-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.restaurant-details-font {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cuisine-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
+    background-color: #ffda4a;
+    min-width: auto;
+    margin-left: 10px;
+}
+
+.city-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
+    background-color: #ffda4a;
+    min-width: auto;
+    margin-left: 10px;
+}
+
+.address-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
+    background-color: #ffda4a;
+    min-width: auto;
+    margin-left: 15px;
+}
+
+.restaurant-description-container {
+    padding: 20px;
+    background-color: #ff9903;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.restaurant-description-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.restaurant-description-text {
+    font-size: 16px;
+    color: #555;
+}
+
+.restaurant-read-more {
+    color: #fff !important;
+    background: #ff6916 !important;
+    border-color: #f5faff !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
