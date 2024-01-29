@@ -74,7 +74,7 @@ const Restaurant = ({restaurant}) => {
             <div className="restaurant-description-container">
                 <div className="restaurant-description-header">Короткий опис</div>
                 <div className="restaurant-description-text">
-                    {restaurant.description.substring(0, 200)}
+                    {restaurant.description.substring(0, 200)}...
                 </div>
             </div>
             <Button className="restaurant-read-more"

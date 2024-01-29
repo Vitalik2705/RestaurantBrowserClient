@@ -10,6 +10,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Favourite from "./components/Favourite";
 import {getUserFavoriteRestaurants} from "./api/UserService";
+import Footer from "./components/Footer";
+import Layout from "./components/AppLayout";
 
 function App() {
     const [data, setData] = useState({});
@@ -76,9 +78,8 @@ function App() {
             <>
                 <Route path="/login" element={<Login/>}></Route>
                 <Route path="/register" element={<Register/>}></Route>
-                <Route element={<Header/>}>
+                <Route element={<Layout/>}>
                     <Route path="/" element={<Home/>}></Route>
-
                     <Route path="/favourite" element={<Favourite data={favourite}
                                                                  getAllRestaurants={getAllFavoriteRestaurants}
                                                                  currentPage={favouriteCurrentPage}/>}></Route>

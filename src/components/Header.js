@@ -32,46 +32,45 @@ const Header = () => {
 
     return (
         <>
-        <div className="header">
-            <div className="header-logo-name">
-                <Image width={42} height={42} src={HeaderRestaurantLogo}/>
-                <span>RestaurantBrowser</span>
-            </div>
-            <div className="header-list-elements">
-                <a href="/" className="header-list-elements-element-link">
-                    <p className="header-list-elements-element">Головна</p>
-                </a>
-                <a href="/restaurants" className="header-list-elements-element-link">
-                    <p className="header-list-elements-element">Ресторани</p>
-                </a>
-                <a href="/favourite" className="header-list-elements-element-link">
-                    <p className="header-list-elements-element">Улюблене</p>
-                </a>
-                <a href="/about" className="header-list-elements-element-link">
-                    <p className="header-list-elements-element">Про нас</p>
-                </a>
-            </div>
-            <div className="header-logo-user-profile">
-                <Dropdown
-                    menu={{
-                        items,
-                    }}
-                    trigger={['click']}
-                    placement="bottom"
-                >
-                    <a onClick={(e) => e.preventDefault()}>
-                        {user && user.name && user.surname && (
-                            <div className="user-initials-circle">
-                                {user.name.charAt(0)}
-                                {user.surname.charAt(0)}
-                            </div>
-                        )}
+            <div className="header">
+                <div className="header-logo-name">
+                    <Image width={42} height={42} src={HeaderRestaurantLogo}/>
+                    <span>RestaurantBrowser</span>
+                </div>
+                <div className="header-list-elements">
+                    <a href="/" className="header-list-elements-element-link">
+                        <p className="header-list-elements-element">Головна</p>
                     </a>
-                </Dropdown>
+                    <a href="/restaurants" className="header-list-elements-element-link">
+                        <p className="header-list-elements-element">Ресторани</p>
+                    </a>
+                    <a href="/favourite" className="header-list-elements-element-link">
+                        <p className="header-list-elements-element">Улюблене</p>
+                    </a>
+                    <a href="/about" className="header-list-elements-element-link">
+                        <p className="header-list-elements-element">Про нас</p>
+                    </a>
+                </div>
+                <div className="header-logo-user-profile">
+                    <Dropdown
+                        menu={{
+                            items,
+                        }}
+                        trigger={['click']}
+                        placement="bottom"
+                    >
+                        <a onClick={(e) => e.preventDefault()}>
+                            {user && user.name && user.surname && (
+                                <div className="user-initials-circle">
+                                    {user.name.charAt(0)}
+                                    {user.surname.charAt(0)}
+                                </div>
+                            )}
+                        </a>
+                    </Dropdown>
+                </div>
             </div>
-        </div>
-        <Outlet />
-    </>
+        </>
     );
 };
 
