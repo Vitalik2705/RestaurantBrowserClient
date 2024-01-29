@@ -11,7 +11,7 @@ import cuisineTranslation from "../data/cuisineTranslation.json"
 import {checkTokenValidity} from "../utils/validation";
 
 const RestaurantView = () => {
-    const { id } = useParams();
+    const {id} = useParams();
     const history = useNavigate();
     const [restaurant, setRestaurant] = useState({
         restaurantId: '',
@@ -38,7 +38,7 @@ const RestaurantView = () => {
             try {
                 const response = await getRestaurant(id);
                 setRestaurant(prevRestaurant => {
-                    const updatedRestaurant = { ...prevRestaurant, ...response.data };
+                    const updatedRestaurant = {...prevRestaurant, ...response.data};
 
                     updatePopularityCount(id, updatedRestaurant.popularityCount + 1);
 
@@ -69,7 +69,8 @@ const RestaurantView = () => {
                             <Rate allowHalf value={restaurant.rating} disabled/>
                         </div>
                         <div className="cuisine-view-container">
-                            <div className="restaurant-view-details-font"> {cuisineTranslation.cuisineTypes[restaurant.cuisineType]}</div>
+                            <div
+                                className="restaurant-view-details-font"> {cuisineTranslation.cuisineTypes[restaurant.cuisineType]}</div>
                         </div>
                         <div className="city-view-container">
                             <div className="restaurant-view-details-font">{restaurant.city}</div>
@@ -78,17 +79,19 @@ const RestaurantView = () => {
                             <div className="restaurant-view-details-font">{restaurant.address}</div>
                         </div>
                     </div>
-                    <Carousel className="restaurant-view-carousel" effect="fade" dotPosition="bottom" autoplay autoplaySpeed={3000}>
+                    <Carousel className="restaurant-view-carousel" effect="fade" dotPosition="bottom" autoplay
+                              autoplaySpeed={3000}>
                         {restaurant.photos.map((photo, index) => (
                             <div key={index}>
-                                <img className="restaurant-view-carousel-element" src={photo} alt={`Photo ${index + 1}`} />
+                                <img className="restaurant-view-carousel-element" src={photo}
+                                     alt={`Photo ${index + 1}`}/>
                             </div>
                         ))}
                     </Carousel>
                     <div className="rating-view-details">
                         <div className="rating-view-container-details">
                             <Rate className="rating-view-details-rate" allowHalf value={restaurant.rating} disabled/>
-                            <div className="rating-view-details-number">{restaurant.rating}</div>
+                            <div className="rating-view-details-number">{restaurant.rating.toFixed(1)}</div>
                             <div className="rating-view-details-number">Популярність: {restaurant.popularityCount}</div>
                         </div>
                     </div>
@@ -105,15 +108,15 @@ const RestaurantView = () => {
                     </div>
                     <div className="restaurant-view-feedbacks-container">
                         <div className="restaurant-view-feedbacks-container-header">
-                           Відгуки
+                            Відгуки
                         </div>
-                        <FeedbackModal />
+                        <FeedbackModal/>
                         <div className="feedback-list">
                             {restaurant.feedbackList
                                 .slice()
                                 .sort((a, b) => new Date(b.date) - new Date(a.date))
                                 .map((feedback, index) => (
-                                    <Feedback key={index} feedback={feedback} />
+                                    <Feedback key={index} feedback={feedback}/>
                                 ))}
                         </div>
                     </div>
