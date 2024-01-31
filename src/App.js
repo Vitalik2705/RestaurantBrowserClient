@@ -12,6 +12,7 @@ import Favourite from "./components/Favourite";
 import {getUserFavoriteRestaurants} from "./api/UserService";
 import Footer from "./components/Footer";
 import Layout from "./components/AppLayout";
+import About from "./components/About";
 
 function App() {
     const [data, setData] = useState({});
@@ -80,6 +81,7 @@ function App() {
                 <Route path="/register" element={<Register/>}></Route>
                 <Route element={<Layout/>}>
                     <Route path="/" element={<Home/>}></Route>
+                    <Route path="/about" element={<About/>}></Route>
                     <Route path="/favourite" element={<Favourite data={favourite}
                                                                  getAllRestaurants={getAllFavoriteRestaurants}
                                                                  currentPage={favouriteCurrentPage}/>}></Route>
