@@ -64,7 +64,7 @@ export const getUserRequest = async () => {
     }
 }
 
-export const addFavouriteRestaurant = async (restaurantId, ) => {
+export const addFavouriteRestaurant = async (restaurantId,) => {
     const userId = localStorage.getItem('userId');
     await axios.post(`${API_URL}/${userId}/add-favorite-restaurant/${restaurantId}`, headers)
 }
@@ -73,6 +73,9 @@ export const getUserFavoriteRestaurants = async () => {
     const userId = localStorage.getItem('userId');
     try {
         const response = await axios.get(`${API_URL}/${userId}/favorite-restaurants`, headers);
+        if (response.redirected) {
+
+        }
         return response.data;
     } catch (error) {
         console.error('Error fetching favorite restaurants:', error);
@@ -80,7 +83,7 @@ export const getUserFavoriteRestaurants = async () => {
     }
 }
 
-export const removeFavouriteRestaurant = async (restaurantId, ) => {
+export const removeFavouriteRestaurant = async (restaurantId,) => {
     const userId = localStorage.getItem('userId');
     await axios.delete(`${API_URL}/${userId}/remove-favorite-restaurant/${restaurantId}`, headers)
 }
