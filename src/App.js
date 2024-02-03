@@ -34,7 +34,7 @@ function App() {
     const getAllFavoriteRestaurants = async (page = 0, size = 10) => {
         try {
             setFavouriteCurrentPage(page);
-            const favorites = await getUserFavoriteRestaurants();
+            const favorites = await getUserFavoriteRestaurants(page, size);
             setFavourite(favorites);
         } catch (error) {
             console.log(error);
@@ -70,9 +70,8 @@ function App() {
     };
 
     useEffect(() => {
-        getAllRestaurants();
-        getAllFavoriteRestaurants();
-    }, []);
+        getAllFavoriteRestaurants(favouriteCurrentPage);
+    }, [favouriteCurrentPage]);
 
     const router = createBrowserRouter(
         createRoutesFromElements(
