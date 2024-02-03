@@ -7,7 +7,6 @@ import Carousel4 from "../images/carousel4.jpg";
 import {emailValidator, passwordValidator} from "../utils/utils";
 import {useNavigate} from "react-router-dom";
 import {loginRequest} from "../api/UserService";
-import axios from "axios";
 
 const Login = () => {
     const photos = [Carousel1, Carousel2, Carousel3, Carousel4]
@@ -23,25 +22,11 @@ const Login = () => {
         await loginRequest(requestBody, history);
     };
 
-    const handleGoogleLogin = async () => {
-        try {
-            const response = await fetch("http://localhost:8081/api/auth/google", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
 
-            // Assuming the response contains a redirect URL
-            const {redirectUrl} = await response.json();
-
-            // Redirect the user to the Google OAuth2 page
-            window.location.href = redirectUrl;
-        } catch (error) {
-            console.error("Error during Google login:", error);
-            // Handle error appropriately
-        }
-    };
+    const handleGoogleLogin = () => {
+        const redirectUri = encodeURIComponent("http://localhost:8081/login/oauth/code/google");
+        window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=3544813198-28q2158enf04ssgrreaos6a3a6n0te4g.apps.googleusercontent.com&redirect_uri=${redirectUri}&response_type=code&scope=openid%20email%20profile`;
+    }
 
     return (
         <div className="login">
