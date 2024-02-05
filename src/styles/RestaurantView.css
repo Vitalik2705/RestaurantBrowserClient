@@ -1,12 +1,29 @@
 .restaurant-view {
-    margin-top:80px;
+    margin-top: 80px;
     min-height: 200vh;
     background-color: #f5faff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.restaurant-view-breadcrumb {
+    padding-top: 40px;
+    margin-left: 180px;
+    font-size: 20px;
+}
+
+.restaurant-view-breadcrumb-title {
+    font-size: 18px;
+    font-family: Roboto;
+}
+
+.restaurant-view-breadcrumb-link:hover {
+    background-color: #fd8340 !important;
+    color: white !important;
+    height: 28px !important;
+}
+
 .restaurant-view-data {
-    padding-top: 70px;
+    padding-top: 10px;
     margin-left: 180px;
     display: flex;
     flex-direction: row;
@@ -74,12 +91,12 @@
 }
 
 .ant-carousel .slick-dots li {
-    width:18px;
+    width: 18px;
     height: 20px;
 }
 
 .ant-carousel .slick-dots li button {
-    background-color: #f5faff!important;
+    background-color: #f5faff !important;
     width: 20px;
     height: 20px;
 }

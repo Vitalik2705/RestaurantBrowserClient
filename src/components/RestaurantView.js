@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {getRestaurant, updatePopularityCount} from "../api/RestaurantService";
 import {useNavigate, useParams} from "react-router-dom";
 import '../styles/RestaurantView.css';
-import {Carousel, Rate} from "antd";
+import {Breadcrumb, Carousel, Rate} from "antd";
 import {getCombinedTablesInfo} from "../utils/utils";
 import FeedbackModal from "./FeedbackModal";
 import Feedback from "./Feedback";
@@ -61,6 +61,19 @@ const RestaurantView = () => {
 
     return (
         <div className="restaurant-view">
+            <Breadcrumb
+                className="restaurant-view-breadcrumb"
+                items={[
+                    {
+                        className: "restaurant-view-breadcrumb-title",
+                        title: <a className="restaurant-view-breadcrumb-link" href="/restaurants">Список ресторанів</a>,
+                    },
+                    {
+                        className: "restaurant-view-breadcrumb-title",
+                        title: 'Ресторан',
+                    },
+                ]}
+            />
             <div className="restaurant-view-data">
                 <div className="restaurant-view-data-left">
                     <div className="restaurant-view-name">{restaurant.name}</div>
