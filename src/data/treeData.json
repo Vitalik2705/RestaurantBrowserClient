@@ -3,34 +3,86 @@
     "value": "city",
     "title": "місто",
     "children": [
-      { "value": "Львів", "title": "Львів" },
-      { "value": "Київ", "title": "Київ" },
-      { "value": "Дніпро", "title": "Дніпро" },
-      { "value": "Харків", "title": "Харків" },
-      { "value": "Одеса", "title": "Одеса" }
+      {
+        "value": "Львів",
+        "title": "Львів"
+      },
+      {
+        "value": "Київ",
+        "title": "Київ"
+      },
+      {
+        "value": "Дніпро",
+        "title": "Дніпро"
+      },
+      {
+        "value": "Харків",
+        "title": "Харків"
+      },
+      {
+        "value": "Одеса",
+        "title": "Одеса"
+      }
     ]
   },
   {
     "value": "cuisine",
     "title": "кухня",
     "children": [
-      { "value": "international", "title": "Інтернаціональна" },
-      { "value": "italian", "title": "Італійська" },
-      { "value": "Ukrainian", "title": "Українська" },
-      { "value": "Chinese", "title": "Китайська" },
-      { "value": "Mexican", "title": "Мексиканська" },
-      { "value": "Indian", "title": "Індійська" }
+      {
+        "value": "international",
+        "title": "Інтернаціональна"
+      },
+      {
+        "value": "italian",
+        "title": "Італійська"
+      },
+      {
+        "value": "Ukrainian",
+        "title": "Українська"
+      },
+      {
+        "value": "Chinese",
+        "title": "Китайська"
+      },
+      {
+        "value": "Mexican",
+        "title": "Мексиканська"
+      },
+      {
+        "value": "Indian",
+        "title": "Індійська"
+      },
+      {
+        "value": "American",
+        "title": "Американська"
+      }
     ]
   },
   {
     "value": "rating",
     "title": "рейтинг",
     "children": [
-      { "value": "1", "title": "1" },
-      { "value": "2", "title": "2" },
-      { "value": "3", "title": "3" },
-      { "value": "4", "title": "4" },
-      { "value": "5", "title": "5" }
+      {
+        "value": "1",
+        "title": "1"
+      },
+      {
+        "value": "2",
+        "title": "2"
+      },
+      {
+        "value": "3",
+        "title": "3"
+      },
+      {
+        "value": "4",
+        "title": "4"
+      },
+      {
+        "value": "5",
+        "title": "5"
+      }
     ]
   }
 ]

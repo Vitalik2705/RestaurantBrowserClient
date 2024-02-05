@@ -8,11 +8,11 @@ const headers = {
 
 export async function getRestaurants(page = 0, size = 10, sortOption = 1) {
     const endpoint = sortOption === 1 ? "/sortedByPopularity" : "/sortedByRating";
-    return await axios.get(`${API_URL}${endpoint}?page=${page}&size=${size}`, { headers });
+    return await axios.get(`${API_URL}${endpoint}?page=${page}&size=${size}`, {headers});
 }
 
 export async function searchRestaurants(searchTerm, page = 0, size = 10) {
-    return  await axios.get(`${API_URL}/search?term=${encodeURIComponent(searchTerm)}&page=${page}&size=${size}`,
+    return await axios.get(`${API_URL}/search?term=${encodeURIComponent(searchTerm)}&page=${page}&size=${size}`,
         {headers});
 }
 
@@ -47,6 +47,23 @@ export async function updatePopularityCount(restaurantId, newPopularityCount) {
         console.log('Popularity count updated successfully');
     } catch (error) {
         console.error('Error updating popularity count:', error);
+        throw error;
+    }
+}
+
+export async function updatePhoto(id, file) {
+    const formData = new FormData();
+    formData.append('id', id);
+    formData.append('file', file);
+
+    try {
+        const response = await axios.patch(`${API_URL}/photo`, formData, {
+            headers: headers
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error('Error updating photo:', error);
         throw error;
     }
 }

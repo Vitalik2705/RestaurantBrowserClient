@@ -1,4 +1,4 @@
-import HomeMainPhoto from "../images/split-cover.jpg";
+import NoPhoto from "../images/no-photo.jpg";
 import '../styles/Restaurant.css';
 import {Button, Rate} from "antd";
 import {useNavigate} from "react-router-dom";
@@ -12,6 +12,7 @@ const Restaurant = ({restaurant}) => {
     const [isFavorite, setIsFavorite] = useState(false);
 
     const navigateToDetails = () => {
+        window.scrollTo(0, 0);
         history(`/restaurants/${restaurant.restaurantId}`);
     };
 
@@ -44,7 +45,8 @@ const Restaurant = ({restaurant}) => {
     return (
         <div className="restaurant">
             <div className="restaurant-image">
-                {restaurant ? <img src={restaurant.photos[0]} alt={restaurant.name}/> : <img src={HomeMainPhoto}/>}
+                {restaurant.photos.length > 0 ? <img src={restaurant.photos[0]} alt={restaurant.name}/> :
+                    <img src={NoPhoto}/>}
             </div>
             <div className="restaurant-header">
                 <p className="restaurant-name">{restaurant.name.substring(0, 100)}</p>

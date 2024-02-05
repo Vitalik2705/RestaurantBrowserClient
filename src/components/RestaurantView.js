@@ -1,14 +1,16 @@
-import {useEffect, useState} from "react";
-import {getRestaurant, updatePopularityCount} from "../api/RestaurantService";
+import React, {useEffect, useState} from "react";
+import {getRestaurant, updatePhoto, updatePopularityCount} from "../api/RestaurantService";
 import {useNavigate, useParams} from "react-router-dom";
 import '../styles/RestaurantView.css';
-import {Breadcrumb, Carousel, Rate} from "antd";
+import {Breadcrumb, Button, Carousel, message, Rate} from "antd";
 import {getCombinedTablesInfo} from "../utils/utils";
 import FeedbackModal from "./FeedbackModal";
 import Feedback from "./Feedback";
 import dayTranslation from "../data/dayTranslation.json"
 import cuisineTranslation from "../data/cuisineTranslation.json"
 import {checkTokenValidity} from "../utils/validation";
+import NoPhoto from "../images/no-photo.jpg";
+import axios from "axios";
 
 const RestaurantView = () => {
     const {id} = useParams();
@@ -32,6 +34,7 @@ const RestaurantView = () => {
         menu: '',
         popularityCount: 0,
     });
+    const [selectedFile, setSelectedFile] = useState(null);
 
     useEffect(() => {
         const fetchRestaurant = async () => {
@@ -58,6 +61,32 @@ const RestaurantView = () => {
         const storedToken = localStorage.getItem('token');
         checkTokenValidity(storedToken, history);
     }, []);
+
+    const handleFileChange = (e) => {
+        setSelectedFile(e.target.files[0]);
+    };
+
+    const handleUploadPhoto = async () => {
+        if (!selectedFile) {
+            message.error('Будь ласка виберіть файл');
+            return;
+        }
+        try {
+            await updatePhoto(restaurant.restaurantId, selectedFile);
+            message.success("Фото успішно додано!");
+        } catch (error) {
+            console.error('Error uploading photo:', error);
+            message.error('Помилка додавання!');
+        }
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
+    };
+
+    const handleSelectFile = () => {
+        document.getElementById('fileInput').click();
+    };
 
     return (
         <div className="restaurant-view">
@@ -94,12 +123,17 @@ const RestaurantView = () => {
                     </div>
                     <Carousel className="restaurant-view-carousel" effect="fade" dotPosition="bottom" autoplay
                               autoplaySpeed={3000}>
-                        {restaurant.photos.map((photo, index) => (
+                        {(restaurant.photos.length > 0 ? restaurant.photos.slice(-10) : []).map((photo, index) => (
                             <div key={index}>
                                 <img className="restaurant-view-carousel-element" src={photo}
                                      alt={`Photo ${index + 1}`}/>
                             </div>
                         ))}
+                        {restaurant.photos.length === 0 && (
+                            <div>
+                                <img className="restaurant-view-carousel-element" src={NoPhoto} alt={restaurant.name}/>
+                            </div>
+                        )}
                     </Carousel>
                     <div className="rating-view-details">
                         <div className="rating-view-container-details">
@@ -171,6 +205,24 @@ const RestaurantView = () => {
                     </div>
                     <div className="restaurant-view-data-right-dining-tables">
                         {getCombinedTablesInfo(restaurant.diningTables)}
+                    </div>
+                    <div>
+                        <input type="file" id="fileInput" onChange={handleFileChange} style={{display: 'none'}}/>
+                        <div className="thumbnail-container" style={{display: selectedFile ? 'block' : 'none'}}>
+                            {selectedFile && (
+                                <img
+                                    className="thumbnail"
+                                    src={URL.createObjectURL(selectedFile)}
+                                    alt="Selected Thumbnail"
+                                />
+                            )}
+                        </div>
+                        <Button className="feedback-modal-button" size="large" onClick={handleSelectFile}>
+                            Вибрати файл
+                        </Button>
+                        <Button className="feedback-modal-button" size="large" onClick={handleUploadPhoto}>
+                            Завантажити фото
+                        </Button>
                     </div>
                 </div>
             </div>
