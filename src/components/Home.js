@@ -151,12 +151,12 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="home-second-part">
-                    <div className="home-second-part-collapse">
+                    <div ref={ref2} className="home-second-part-collapse">
                         <div className="home-carousel-text">
                             Зберігайте улюблене!
                         </div>
                         <Link to="/favourite">
-                            <Button ref={ref2} size={"large"}>До улюбленого!</Button>
+                            <Button size={"large"}>До улюбленого!</Button>
                         </Link>
                     </div>
                     <div className="home-carousel-div">
