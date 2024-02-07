@@ -4,15 +4,20 @@ import Carousel1 from "../images/carousel1.webp";
 import Carousel2 from "../images/carousel2.webp";
 import Carousel3 from "../images/carousel3.jpg";
 import Carousel4 from "../images/carousel4.jpg";
-import {Anchor, Button, Carousel, Collapse, ConfigProvider, Image} from "antd";
+import {Anchor, Button, Carousel, Collapse, ConfigProvider, Image, Tour} from "antd";
 import {PlayCircleOutlined} from "@ant-design/icons";
 import {Link, useNavigate} from "react-router-dom";
 import HomeCarousel from "./HomeCarousel";
-import HomeCollapse from "./HomeCollapse";
-import {useEffect} from "react";
+import uk_UA from 'antd/locale/uk_UA';
+import {useEffect, useRef, useState} from "react";
 import {checkTokenValidity} from "../utils/validation";
 
 const Home = () => {
+    const ref1 = useRef(null);
+    const ref2 = useRef(null);
+    const ref3 = useRef(null);
+    const [open, setOpen] = useState(false);
+
     const slidesCarousel1 = [
         {
             header: 'Чому наш сайт?',
@@ -64,8 +69,29 @@ const Home = () => {
         checkTokenValidity(storedToken, history);
     }, []);
 
+    const steps = [
+        {
+            title: 'Шукайте ресторани на будь-який смак!',
+            description: 'Переходьте сюди та шукайте!',
+            target: () => ref1.current,
+        },
+        {
+            title: 'Зберігайте в улюблене!',
+            description: 'Ви маєте можливість зберігати ресторани, які сподобались, щоб повернутись знову.',
+            target: () => ref2.current,
+            scrollIntoViewOptions: false
+        },
+        {
+            title: 'Про нас',
+            description: 'Ознайомтесь з усіма можливостями сайту.',
+            target: () => ref3.current,
+            scrollIntoViewOptions: false
+        },
+    ];
+
     return (
         <ConfigProvider
+            locale={uk_UA}
             theme={{
                 components: {
                     Button: {
@@ -97,6 +123,8 @@ const Home = () => {
                         },
                     ]}
                 />
+                <Tour zIndex={1500} scrollIntoViewOptions={false} open={open} onClose={() => setOpen(false)}
+                      steps={steps}/>
                 <div className="home-first-part" id="part-1">
                     <div className="home-left-side-content">
                         <p className="home-left-side-content-header">
@@ -109,10 +137,12 @@ const Home = () => {
                         </p>
                         <div className="home-left-side-content-buttons">
                             <Link to="/restaurants">
-                                <Button size={"large"}>Почати зараз!</Button>
+                                <Button ref={ref1} size={"large"}>Почати зараз!</Button>
                             </Link>
                             <Button className="home-left-side-content-how-button"
-                                    size={"large"} icon={<PlayCircleOutlined/>}>Як користуватись?</Button>
+                                    size={"large"} icon={<PlayCircleOutlined/>} onClick={() => setOpen(true)}>
+                                Як користуватись?
+                            </Button>
                         </div>
                     </div>
                     <div className="home-right-side-content">
@@ -123,9 +153,11 @@ const Home = () => {
                 <div className="home-second-part">
                     <div className="home-second-part-collapse">
                         <div className="home-carousel-text">
-                            Розпочати!
+                            Зберігайте улюблене!
                         </div>
-                        <HomeCollapse/>
+                        <Link to="/favourite">
+                            <Button ref={ref2} size={"large"}>До улюбленого!</Button>
+                        </Link>
                     </div>
                     <div className="home-carousel-div">
                         <div id="part-2" className="home-carousel-text">
@@ -148,7 +180,7 @@ const Home = () => {
                         </Carousel>
                     </div>
                 </div>
-                <div className="home-multiple-carousel-div">
+                <div className="home-multiple-carousel-div" ref={ref3}>
                     <HomeCarousel slides={slidesCarousel1}/>
                     <HomeCarousel slides={slidesCarousel2}/>
                     <HomeCarousel slides={slidesCarousel3}/>

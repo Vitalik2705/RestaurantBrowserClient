@@ -109,6 +109,13 @@
     justify-content: space-between;
 }
 
+.home-second-part-collapse {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 70px;
+}
+
 .home-carousel-div {
     display: flex;
     flex-direction: column;
@@ -139,4 +146,8 @@
     margin: 100px;
     display: flex;
     justify-content: space-between;
+}
+
+.ant-tour-next-btn {
+    background: #ff6916 !important;
 }
