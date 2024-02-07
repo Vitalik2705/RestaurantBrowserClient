@@ -10,7 +10,6 @@ import dayTranslation from "../data/dayTranslation.json"
 import cuisineTranslation from "../data/cuisineTranslation.json"
 import {checkTokenValidity} from "../utils/validation";
 import NoPhoto from "../images/no-photo.jpg";
-import axios from "axios";
 
 const RestaurantView = () => {
     const {id} = useParams();
@@ -42,9 +41,7 @@ const RestaurantView = () => {
                 const response = await getRestaurant(id);
                 setRestaurant(prevRestaurant => {
                     const updatedRestaurant = {...prevRestaurant, ...response.data};
-
                     updatePopularityCount(id, updatedRestaurant.popularityCount + 1);
-
                     return updatedRestaurant;
                 });
 

@@ -1,4 +1,4 @@
-import {Button, Dropdown, Image} from "antd";
+import {Avatar, Button, Dropdown, Image} from "antd";
 import HeaderRestaurantLogo from "../images/searching.png";
 import '../styles/Header.css';
 import {Outlet, useNavigate} from "react-router-dom";
@@ -61,10 +61,10 @@ const Header = () => {
                     >
                         <a onClick={(e) => e.preventDefault()}>
                             {user && user.name && user.surname && (
-                                <div className="user-initials-circle">
+                                <Avatar size={44} className="user-initials-circle">
                                     {user.name.charAt(0)}
                                     {user.surname.charAt(0)}
-                                </div>
+                                </Avatar>
                             )}
                         </a>
                     </Dropdown>
