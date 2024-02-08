@@ -1,9 +1,9 @@
-import {Rate} from "antd";
+import {Popconfirm, Rate} from "antd";
 import '../styles/Feedback.css';
 import {DeleteOutlined} from "@ant-design/icons";
 import {deleteFeedback} from "../api/FeedbackService";
 
-const Feedback = ({ feedback }) => {
+const Feedback = ({feedback}) => {
     const formatDate = (dateString) => {
         const options = {
             year: 'numeric',
@@ -28,14 +28,23 @@ const Feedback = ({ feedback }) => {
                 <div className="feedback-feedback-item-header-wrapper">
                     <div className="feedback-date">{formatDate(feedback.date)}</div>
                     <div className="feedback-delete">
-                    {feedback.user.id == localStorage.getItem('userId') && (
-                        <DeleteOutlined onClick={handleDelete} style={{ cursor: 'pointer' }} />
-                    )}
+                        <Popconfirm
+                            title="Видалити коментар"
+                            description="Ви впевнені що хочете видалити коментар?"
+                            okText="Так"
+                            cancelText="Ні"
+                            onConfirm={handleDelete}
+                            
+                        >
+                            {feedback.user.id == localStorage.getItem('userId') && (
+                                <DeleteOutlined style={{cursor: 'pointer'}}/>
+                            )}
+                        </Popconfirm>
                     </div>
                 </div>
             </div>
             <div className="feedback-rating">
-                <Rate allowHalf value={feedback.rating} disabled />
+                <Rate allowHalf value={feedback.rating} disabled/>
             </div>
             <div className="feedback-text-header">Коментар:</div>
             <div className="feedback-description feedback-text">{feedback.description}</div>
