@@ -67,3 +67,16 @@ export async function updatePhoto(id, file) {
         throw error;
     }
 }
+
+export async function addRestaurant(restaurantData) {
+    try {
+        const response = await axios.post(`${API_URL}`, restaurantData, {
+            headers: headers
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error('Error adding restaurant:', error);
+        throw error;
+    }
+}

@@ -1,0 +1,32 @@
+.add-restaurant-header {
+    margin-bottom: 10px;
+}
+
+.add-restaurant-textarea {
+    height: 120px;
+    width: 400px;
+}
+
+.add-restaurant-modal-button {
+    color: #fff !important;
+    background: #ff6916 !important;
+    border-color: #f5faff !important;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.add-restaurant-modal-button:hover {
+    color: #ff6916;
+    background: #fff;
+    border-color: #f5faff;
+}
+
+.add-restaurant-modal-button-wrapper-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add-restaurant-time-picker {
+    margin-left: 5px;
+}
