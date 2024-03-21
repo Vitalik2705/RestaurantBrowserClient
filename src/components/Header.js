@@ -1,5 +1,6 @@
 import {Avatar, Button, Dropdown, Image} from "antd";
 import HeaderRestaurantLogo from "../images/searching.png";
+import AdminLogo from "../images/user.png"
 import '../styles/Header.css';
 import {Outlet, useNavigate} from "react-router-dom";
 import {getUserRequest, loginRequest} from "../api/UserService";
@@ -30,12 +31,20 @@ const Header = () => {
         getUser();
     }, []);
 
+    const isAdmin = user && user.roles && user.roles.some(role => role.name === 'ROLE_ADMIN' || role.name === 'ADMIN');
+
     return (
         <>
             <div className="header">
                 <div className="header-logo-name">
                     <Image width={42} height={42} src={HeaderRestaurantLogo}/>
                     <span>RestaurantBrowser</span>
+                    {isAdmin && (
+                        <div style={{display: 'flex', alignItems: 'center'}}>
+                            <Image width={32} style={{marginLeft: 15}} height={32} src={AdminLogo}/>
+                            <span style={{marginLeft: 20, fontSize: 14}}>Акаунт <br/>адміна</span>
+                        </div>
+                    )}
                 </div>
                 <div className="header-list-elements">
                     <a href="/" className="header-list-elements-element-link">
