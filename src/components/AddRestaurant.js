@@ -6,13 +6,25 @@ import TextArea from "antd/es/input/TextArea";
 import cuisineTranslation from "../data/cuisineTranslation.json"
 import {MinusCircleOutlined, PlusOutlined} from "@ant-design/icons";
 import {addRestaurant} from "../api/RestaurantService";
+import {getUserRequest} from "../api/UserService";
 
 const AddRestaurant = () => {
     const [open, setOpen] = useState(false);
     const [feedbackForm] = Form.useForm();
-    // const {id} = useParams();
-    // const userId = localStorage.getItem('userId');
     const {Option} = Select;
+    const [user, setUser] = useState();
+
+    const getUser = async () => {
+        const response = await getUserRequest();
+        console.log(response)
+        setUser(response);
+    };
+
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    const isAdmin = user && user.roles && user.roles.some(role => role.name === 'ROLE_ADMIN' || role.name === 'ADMIN');
 
     const daysOfWeek = {
         MONDAY: 'Понеділок',
@@ -87,9 +99,11 @@ const AddRestaurant = () => {
     return (
         <ConfigProvider locale={uk_UA}>
             <div className="add-restaurant-modal">
-                <Button size={"large"} className="add-restaurant-modal-button" onClick={showModal}>
-                    Додати ресторан
-                </Button>
+                {isAdmin && (
+                    <Button size={"large"} className="add-restaurant-modal-button" onClick={showModal}>
+                        Додати ресторан
+                    </Button>
+                )}
                 <Modal
                     open={open}
                     title="Додати ресторан"
