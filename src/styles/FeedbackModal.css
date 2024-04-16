@@ -20,8 +20,12 @@
 }
 
 .feedback-modal-button:hover {
-    color: #ff6916 ;
-    background: #fff ;
-    border-color: #f5faff ;
+    color: #ff6916;
+    background: #fff;
+    border-color: #f5faff;
 }
 
+.feedback-modal-button-wrapper-panel {
+    display: flex;
+    justify-content: space-between;
+}

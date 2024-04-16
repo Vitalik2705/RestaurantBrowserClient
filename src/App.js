@@ -1,7 +1,6 @@
 import './App.css';
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes} from "react-router-dom";
 import Home from "./components/Home";
-import Header from "./components/Header";
 import RestaurantList from "./components/RestaurantList";
 import {filterRestaurants, getRestaurants, searchRestaurants} from "./api/RestaurantService";
 import {useEffect, useState} from "react";
@@ -10,7 +9,6 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Favourite from "./components/Favourite";
 import {getUserFavoriteRestaurants} from "./api/UserService";
-import Footer from "./components/Footer";
 import Layout from "./components/AppLayout";
 import About from "./components/About";
 

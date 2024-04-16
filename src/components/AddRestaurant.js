@@ -93,6 +93,10 @@ const AddRestaurant = () => {
             console.error('Помилка при додаванні ресторану:', error);
         }
 
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
+        
         console.log(requestBody);
     };
 

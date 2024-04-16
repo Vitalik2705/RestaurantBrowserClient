@@ -1,7 +1,7 @@
 import axios from "axios";
 import {message} from "antd";
 
-const API_URL = 'http://localhost:8081/api/auth';
+const API_URL = 'http://restaurant-browser2-env.eba-sib9a9my.eu-north-1.elasticbeanstalk.com/api/auth';
 const token = localStorage.getItem('token');
 const headers = {
     'Authorization': `Bearer ${token}`

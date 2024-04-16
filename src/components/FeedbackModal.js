@@ -9,7 +9,7 @@ import {createFeedback} from "../api/FeedbackService";
 const FeedbackModal = () => {
     const [open, setOpen] = useState(false);
     const [feedbackForm] = Form.useForm();
-    const { id } = useParams();
+    const {id} = useParams();
     const history = useNavigate();
     const userId = localStorage.getItem('userId');
 
@@ -27,7 +27,7 @@ const FeedbackModal = () => {
     };
 
     const onFinish = async (values) => {
-        const { rate, advantages, disadvantages, comment } = values;
+        const {rate, advantages, disadvantages, comment} = values;
 
         const currentDate = new Date();
         const formattedDate = currentDate.toISOString();
@@ -61,7 +61,7 @@ const FeedbackModal = () => {
                     <Form.Item
                         name="rate"
                         rules={[
-                            { required: true, message: 'Будь ласка, поставте оцінку' },
+                            {required: true, message: 'Будь ласка, поставте оцінку'},
                         ]}
                     >
                         <Rate className="feedback-modal-rate"/>
@@ -70,25 +70,25 @@ const FeedbackModal = () => {
                     <Form.Item
                         name="advantages"
                         rules={[
-                            { required: true, message: 'Будь ласка, опишіть переваги' },
+                            {required: true, message: 'Будь ласка, опишіть переваги'},
                         ]}
                     >
-                        <Input className="feedback-modal-input" placeholder="Переваги" />
+                        <Input className="feedback-modal-input" placeholder="Переваги"/>
                     </Form.Item>
                     <div className="feedback-modal-header">Недоліки</div>
                     <Form.Item
                         name="disadvantages"
                         rules={[
-                            { required: true, message: 'Будь ласка, опишіть недоліки' },
+                            {required: true, message: 'Будь ласка, опишіть недоліки'},
                         ]}
                     >
-                        <Input className="feedback-modal-input" placeholder="Недоліки" />
+                        <Input className="feedback-modal-input" placeholder="Недоліки"/>
                     </Form.Item>
                     <div className="feedback-modal-header">Коментар</div>
                     <Form.Item
                         name="comment"
                         rules={[
-                            { required: true, message: 'Будь ласка, напишіть коментар' },
+                            {required: true, message: 'Будь ласка, напишіть коментар'},
                         ]}
                     >
                         <TextArea
@@ -100,7 +100,7 @@ const FeedbackModal = () => {
                             style={{resize: 'none'}}
                         />
                     </Form.Item>
-                    <div className="home-button-wrapper-panel">
+                    <div className="feedback-modal-button-wrapper-panel">
                         <Button size={"large"} className="feedback-modal-button" htmlType="submit">
                             Опублікувати
                         </Button>
