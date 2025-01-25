@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://restaurant-browser2-env.eba-sib9a9my.eu-north-1.elasticbeanstalk.com/api/restaurants';
+const API_URL = 'http://localhost:8080/api/restaurants';
 const token = localStorage.getItem('token');
 const headers = {
     'Authorization': `Bearer ${token}`
@@ -68,9 +68,9 @@ export async function updatePhoto(id, file) {
     }
 }
 
-export async function addRestaurant(restaurantData) {
+export async function addRestaurant(restaurantData, userId) {
     try {
-        const response = await axios.post(`${API_URL}`, restaurantData, {
+        const response = await axios.post(`${API_URL}/${userId}`, restaurantData, {
             headers: headers
         });
 
@@ -79,4 +79,26 @@ export async function addRestaurant(restaurantData) {
         console.error('Error adding restaurant:', error);
         throw error;
     }
+}
+
+export async function getCreatedRestaurants(userId) {
+  try {
+    const response = await axios.get(`${API_URL}/created/${userId}`, {headers});
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching created restaurants:', error);
+    throw error;
+  }
+}
+
+export async function updateRestaurant(restaurantId, restaurantData) {
+  try {
+    const response = await axios.put(`${API_URL}/${restaurantId}`, restaurantData, {
+      headers: headers
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error updating restaurant:', error);
+    throw error;
+  }
 }

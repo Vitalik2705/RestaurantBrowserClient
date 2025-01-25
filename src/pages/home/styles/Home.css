@@ -1,0 +1,150 @@
+.home {
+    min-height: 230vh;
+    background-color: #f5faff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.home-anchor {
+    top: 76px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #f5faff;
+}
+
+.ant-anchor-link {
+    width: 510px;
+    display: flex;
+    justify-content: center;
+    color: #fff !important;
+}
+
+.ant-anchor-ink {
+    background-color: #ff6916 !important;
+    height: 4px !important;
+}
+
+.ant-anchor-link-active {
+    color: #000000 !important;
+}
+
+.ant-anchor-link-title {
+    width: 510px;
+}
+
+.home-first-part {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 100px;
+}
+
+.home-left-side-content {
+    margin-top: 100px;
+    margin-left: 150px;
+    margin-right: 50px;
+}
+
+.home-left-side-content-header {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.5;
+}
+
+.home-left-side-content-middle-text {
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+}
+
+.home-left-side-content-buttons {
+    margin-top: 20px;
+    display: flex;
+}
+
+.home-left-side-content-buttons Button {
+    margin-right: 50px;
+}
+
+.ant-btn {
+    width: 200px;
+}
+
+.ant-btn:hover {
+    color: #ff6916 !important;
+    background: #fff !important;
+    border-color: #f5faff !important;
+}
+
+.home-left-side-content-how-button {
+    color: #ff6916 !important;
+    background: #fff !important;
+}
+
+.home-left-side-content-how-button:hover {
+    color: #fff !important;
+    background: #ff6916 !important;
+}
+
+.home-right-side-content {
+    margin-top: 80px;
+}
+
+.home-right-side-content-main-photo {
+    display: block;
+    margin: 0 auto;
+    border-radius: 30%;
+    overflow: hidden;
+}
+
+.home-second-part {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin: 100px;
+    justify-content: space-between;
+}
+
+.home-second-part-collapse {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 70px;
+}
+
+.home-carousel-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-carousel-text {
+    font-size: 30px;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.home-carousel {
+    width: 700px;
+    height: 500px;
+}
+
+.home-carousel-element {
+    width: 700px;
+    height: 500px;
+    border-radius: 20%;
+    overflow: hidden;
+}
+
+.home-multiple-carousel-div {
+    margin: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ant-tour-next-btn {
+    background: #ff6916 !important;
+}

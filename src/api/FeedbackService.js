@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://restaurant-browser2-env.eba-sib9a9my.eu-north-1.elasticbeanstalk.com/api/feedbacks';
+const API_URL = 'http://localhost:8080/api/feedbacks';
 const token = localStorage.getItem('token');
 const headers = {
     'Authorization': `Bearer ${token}`

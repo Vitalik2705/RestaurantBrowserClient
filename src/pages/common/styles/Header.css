@@ -1,0 +1,81 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f5faff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+.header-logo-name span {
+    margin-left: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #fd8340;
+}
+
+.header-list-elements {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    width: 40%;
+}
+
+.header-list-elements-element-link {
+    text-decoration: none;
+}
+
+.header-list-elements-element {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.header-list-elements-element:hover {
+    color: #fd8340;
+    font-weight: bolder;
+}
+
+.dropdown-button {
+    width: 150px;
+    background: #ff6916 !important;
+    color: #fff !important;
+}
+
+.dropdown-button:hover {
+    color: #ff6916 !important;
+    background: #fff !important;
+}
+
+.header-logo-user-profile {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.user-initials-circle {
+    background-color: #fd8340;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+}
