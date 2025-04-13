@@ -1,6 +1,6 @@
 import NoPhoto from "../../../images/no-photo.jpg";
 import '../styles/Restaurant.css';
-import {Button, Rate, Tooltip} from "antd";
+import {Badge, Button, Rate, Tooltip} from "antd";
 import {useNavigate} from "react-router-dom";
 import cuisineTranslation from "../../../data/cuisineTranslation.json"
 import React, {useEffect, useState} from "react";
@@ -37,6 +37,10 @@ const Restaurant = ({restaurant}) => {
     }
   };
 
+  const shortenText = (text, maxLength) => {
+    return text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
+  };
+
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
@@ -58,14 +62,22 @@ const Restaurant = ({restaurant}) => {
           <img src={NoPhoto}/>
         }
       </div>
+      {restaurant.matchesPreferences && (
+        <div className="match-badge">
+          <Badge.Ribbon
+            color={'volcano'}
+            text={text.restaurant.matchesPreferences}
+          />
+        </div>
+      )}
       <div className="restaurant-header">
         <Tooltip title={restaurant.name} placement={"topLeft"}>
-        <p className="restaurant-name">
-          {restaurant.name.length > 20 ? restaurant.name.substring(0, 20) + "..." : restaurant.name}
-          <span>
+          <p className="restaurant-name">
+            {restaurant.name.length > 20 ? restaurant.name.substring(0, 20) + "..." : restaurant.name}
+            <span>
               {getPriceSymbol(restaurant.priceCategory)}
           </span>
-        </p>
+          </p>
         </Tooltip>
         <Button
           className="restaurant-favorite-button"
@@ -87,10 +99,14 @@ const Restaurant = ({restaurant}) => {
           </div>
         </div>
         <div className="city-container">
-          <div className="restaurant-details-font">{restaurant.address.city}</div>
+          <Tooltip title={restaurant.address.city}>
+            <div className="restaurant-details-font">{shortenText(restaurant.address.city, 10)}</div>
+          </Tooltip>
         </div>
         <div className="address-container">
-          <div className="restaurant-details-font">{restaurant.address.formattedAddress}</div>
+          <Tooltip title={restaurant.address.formattedAddress}>
+            <div className="restaurant-details-font">{shortenText(restaurant.address.formattedAddress, 15)}</div>
+          </Tooltip>
         </div>
       </div>
       <div className="restaurant-description-container">

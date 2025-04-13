@@ -1,12 +1,13 @@
 .restaurant {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 550px;
     height: auto;
     padding: 10px;
     background-color: #f8cdbb;
     border-radius: 8px;
     margin: 10px;
+    position: relative;
 }
 
 .restaurant-image img {
@@ -16,6 +17,17 @@
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;
+}
+
+.match-badge {
+    position: absolute;
+    top: -5px;
+    right: -7px;
+    color: white;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    z-index: 1;
 }
 
 .restaurant-header {

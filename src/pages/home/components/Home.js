@@ -13,6 +13,8 @@ import en_GB from 'antd/locale/en_GB';
 import { useEffect, useRef, useState } from "react";
 import { checkTokenValidity } from "../../../utils/tokenValidation";
 import {useLanguage} from "../../../contexts/LanguageContext";
+import PreferencesModal from "../../common/components/UserPreferences";
+import {checkUserPreferences} from "../../../api/userPreferencesService";
 
 const Home = () => {
   const { language, text } = useLanguage();
@@ -20,6 +22,7 @@ const Home = () => {
   const ref2 = useRef(null);
   const ref3 = useRef(null);
   const [open, setOpen] = useState(false);
+  const [showPreferences, setShowPreferences] = useState(false);
   const history = useNavigate();
 
   const steps = [
@@ -47,9 +50,30 @@ const Home = () => {
     en: en_GB
   };
 
+  const checkPreferences = async () => {
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token');
+
+    if (token && userId) {
+      try {
+        const hasPreferences = await checkUserPreferences(userId);
+        if (!hasPreferences) {
+          setShowPreferences(true);
+        }
+      } catch (error) {
+        console.error('Error checking preferences:', error);
+      }
+    }
+  };
+
+  const handlePreferencesClose = async () => {
+    setShowPreferences(false);
+  };
+
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     checkTokenValidity(storedToken, history);
+    checkPreferences();
   }, []);
 
   return (
@@ -145,6 +169,11 @@ const Home = () => {
           <HomeCarousel slides={text.home.infoCarousels.second} />
           <HomeCarousel slides={text.home.infoCarousels.third} />
         </div>
+        <PreferencesModal
+          open={showPreferences}
+          onClose={handlePreferencesClose}
+          userId={localStorage.getItem("userId")}
+        />
       </div>
     </ConfigProvider>
   );

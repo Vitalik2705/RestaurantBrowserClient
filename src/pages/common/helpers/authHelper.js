@@ -13,7 +13,7 @@ const lastNamePattern = /^[A-ZА-ЯІЇЄҐ][a-zа-яіїєґ]*$/;
 const lastNameMessage = 'Будь ласка, введіть валідне прізвище';
 export const lastNameValidator = createValidator(lastNamePattern, lastNameMessage);
 
-const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const emailPattern = /^[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ0-9a-zA-Z._%+-]+@[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ0-9a-zA-Z.-]+\.[a-zA-Z]{2,}$/;
 const emailMessage = 'Будь ласка, введіть валідний email';
 export const emailValidator = createValidator(emailPattern, emailMessage);
 

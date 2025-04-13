@@ -1,6 +1,6 @@
 import React from 'react';
 import {useLanguage} from "../../../../contexts/LanguageContext";
-import {getCombinedTablesInfo, handleAddressClick} from "../../helpers/restaurantsHelper";
+import {handleAddressClick} from "../../helpers/restaurantsHelper";
 import {Link} from "react-router-dom";
 
 const RestaurantDetails = ({ restaurant, dayTranslation }) => {
@@ -46,12 +46,6 @@ const RestaurantDetails = ({ restaurant, dayTranslation }) => {
             }
           </div>
         ))}
-      </div>
-      <div className="restaurant-view-data-right-header">
-        {text.restaurantView.details.tables.title}
-      </div>
-      <div className="restaurant-view-data-right-dining-tables">
-        {getCombinedTablesInfo(restaurant.diningTables)}
       </div>
     </div>
   );

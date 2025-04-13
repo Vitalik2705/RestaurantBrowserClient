@@ -36,6 +36,37 @@ export const translations = {
         passwordRequired: 'Будь ласка, введіть ваш пароль'
       }
     },
+    preferences: {
+      title: "Ваші вподобання ресторанів",
+      cuisines: {
+        label: "Улюблена кухня",
+        placeholder: "Оберіть улюблені кухні",
+        error: "Будь ласка, оберіть хоча б одну кухню"
+      },
+      price: {
+        label: "Бажаний ціновий діапазон",
+        placeholder: "Оберіть ціновий діапазон",
+        error: "Будь ласка, оберіть ціновий діапазон"
+      },
+      rating: {
+        label: "Мінімальний рейтинг",
+        error: "Будь ласка, оберіть мінімальний рейтинг"
+      },
+      city: {
+        label: "Бажане місто",
+        placeholder: "Введіть назву міста",
+        error: "Будь ласка, введіть місто"
+      },
+      country: {
+        label: "Країна",
+        placeholder: "Введіть назву країни",
+        error: "Будь ласка, введіть країну"
+      },
+      saveButton: "Зберегти вподобання",
+      cancelButton: "Скасувати",
+      saveSuccess: "Вподобання збережені успішно",
+      saveError: "Помилка при збереженні вподобань"
+    },
     header: {
       home: 'Головна',
       restaurants: 'Ресторани',
@@ -278,7 +309,8 @@ export const translations = {
           moreDetails: 'Детальніше',
           clickHere: 'Натисніть сюди'
         }
-      }
+      },
+      matchesPreferences: "Відповідає вашим смакам"
     },
     restaurantView: {
       breadcrumb: {
@@ -441,7 +473,8 @@ export const translations = {
       header: 'Сортувати за:',
       options: {
         popularity: 'популярністю',
-        rating: 'рейтингом'
+        rating: 'рейтингом',
+        recommended: 'рекомендовані'
       }
     },
     search: {
@@ -630,6 +663,37 @@ export const translations = {
         emailRequired: 'Please enter your email',
         passwordRequired: 'Please enter your password'
       }
+    },
+    preferences: {
+      title: "Your Restaurant Preferences",
+      cuisines: {
+        label: "Favorite Cuisines",
+        placeholder: "Select your favorite cuisines",
+        error: "Please select at least one cuisine"
+      },
+      price: {
+        label: "Preferred Price Range",
+        placeholder: "Select price range",
+        error: "Please select your price preference"
+      },
+      rating: {
+        label: "Minimum Rating",
+        error: "Please select minimum rating"
+      },
+      city: {
+        label: "Preferred City",
+        placeholder: "Enter city name",
+        error: "Please enter your preferred city"
+      },
+      country: {
+        label: "Country",
+        placeholder: "Enter country name",
+        error: "Please enter country"
+      },
+      saveButton: "Save Preferences",
+      cancelButton: "Cancel",
+      saveSuccess: "Preferences saved successfully",
+      saveError: "Failed to save preferences"
     },
     header: {
       home: 'Home',
@@ -873,7 +937,8 @@ export const translations = {
           moreDetails: 'More Details',
           clickHere: 'Click here'
         }
-      }
+      },
+      matchesPreferences: "Matches Your Taste"
     },
     restaurantView: {
       breadcrumb: {
@@ -1036,7 +1101,8 @@ export const translations = {
       header: 'Sort by:',
       options: {
         popularity: 'popularity',
-        rating: 'rating'
+        rating: 'rating',
+        recommended: 'recommended',
       }
     },
     search: {

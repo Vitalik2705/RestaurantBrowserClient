@@ -6,9 +6,14 @@ const headers = {
     'Authorization': `Bearer ${token}`
 };
 
-export async function getRestaurants(page = 0, size = 10, sortOption = 1) {
-    const endpoint = sortOption === 1 ? "/sortedByPopularity" : "/sortedByRating";
-    return await axios.get(`${API_URL}${endpoint}?page=${page}&size=${size}`, {headers});
+export async function getRestaurants(page = 0, size = 10, sortOption = 0, userId) {
+  const endpoints = {
+    0: `/recommended/${userId}`,
+    1: "/sortedByPopularity",
+    2: "/sortedByRating"
+  };
+  const endpoint = endpoints[sortOption] || `/recommended/${userId}`;
+  return await axios.get(`${API_URL}${endpoint}?page=${page}&size=${size}`, {headers});
 }
 
 export async function searchRestaurants(searchTerm, page = 0, size = 10) {

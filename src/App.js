@@ -18,12 +18,12 @@ function App() {
   const [favourite, setFavourite] = useState({});
   const [favouriteCurrentPage, setFavouriteCurrentPage] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const [sortOption, setSortOption] = useState(1);
+  const [sortOption, setSortOption] = useState(0);
 
   const getAllRestaurants = async (page = 0, size = 10) => {
     try {
       setCurrentPage(page);
-      const {data} = await getRestaurants(page, size, sortOption);
+      const {data} = await getRestaurants(page, size, sortOption, localStorage.getItem("userId"));
       setData(data);
     } catch (error) {
       console.log(error);
