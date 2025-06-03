@@ -27,26 +27,36 @@ export const loginRequest = async (requestBody, history) => {
 }
 
 export const registrationRequest = async (requestBody, history) => {
-    axios.post(`${API_URL}/register`, requestBody, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => {
-            if (!response.data) {
-                message.error('You passed incorrect credentials!');
-            } else {
-                const token = response.data.token;
-                const userId = response.data.userId;
-                localStorage.setItem('token', token);
-                localStorage.setItem('userId', userId);
+  try {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
 
-                history('/');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    const response = await axios.post(`${API_URL}/register`, requestBody, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.data) {
+      message.error('You passed incorrect credentials!');
+      return;
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    const token = response.data.token;
+    const userId = response.data.userId;
+
+    localStorage.setItem('token', token);
+    localStorage.setItem('userId', userId);
+
+    message.success('Registration successful!');
+    history('/');
+
+  } catch (error) {
+    console.error('Registration error:', error);
+    message.error('Registration failed. Please try again.');
+  }
 }
 
 export const getUserRequest = async () => {

@@ -122,6 +122,9 @@ const PreferencesModal = ({ open, onClose, userId }) => {
           <Button type="primary" htmlType="submit" style={{ marginRight: 8 }}>
             {text.preferences.saveButton}
           </Button>
+          <Button onClick={onClose}>
+            {text.preferences.cancelButton}
+          </Button>
         </Form.Item>
       </Form>
     </Modal>

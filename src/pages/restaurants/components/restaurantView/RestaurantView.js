@@ -91,7 +91,7 @@ const RestaurantView = () => {
 
   return (
     <div className="restaurant-view">
-      <RestaurantBreadcrumb />
+      <RestaurantBreadcrumb restaurant={restaurant}/>
       <div className="restaurant-view-data">
         <div className="restaurant-view-data-left">
           <div className="restaurant-view-name">{restaurant.name}</div>

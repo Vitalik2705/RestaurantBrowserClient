@@ -1,7 +1,7 @@
 export const translations = {
   uk: {
     register: {
-      appName: 'RestaurantBrowser',
+      appName: 'РестоПошук',
       title: 'Реєстрація',
       firstName: {
         placeholder: 'Введіть ім\'я',
@@ -24,7 +24,7 @@ export const translations = {
       copyright: '© RestaurantBrowser 2024. All rights reserved.'
     },
     login: {
-      appName: 'RestaurantBrowser',
+      appName: 'РестоПошук',
       title: 'Логін',
       emailPlaceholder: 'Введіть email',
       passwordPlaceholder: 'Введіть пароль',
@@ -181,17 +181,17 @@ export const translations = {
       }
     },
     footer: {
-      appName: 'RestaurantBrowser',
+      appName: 'РестоПошук',
       aboutUs: 'Про нас',
       home: 'Головна',
       restaurants: 'Ресторани',
       favourites: 'Улюблене',
       followUs: 'Підписуйтесь на нас',
-      copyright: 'RestaurantBrowser 2024. Всі права захищені.'
+      copyright: 'РестоПошук 2025. Всі права захищені.'
     },
     home: {
       mainContent: {
-        title: 'Найкращі ресторани Львова\nВибирай підходящий для себе та насолоджуйся!',
+        title: 'Найкращі ресторани Львова\nВибирай найкращий для себе та насолоджуйся!',
         subtitle: 'RestaurantBrowser допоможе вам знайти найкращий ресторан!\nБільше 100 кафе, ресторанів і т. д. у вашому місті.',
         startButton: 'Почати зараз!',
         howToUseButton: 'Як користуватись?'
@@ -629,7 +629,7 @@ export const translations = {
   },
   en: {
     register: {
-      appName: 'RestaurantBrowser',
+      appName: 'РестоПошук',
       title: 'Registration',
       firstName: {
         placeholder: 'Enter first name',
@@ -652,7 +652,7 @@ export const translations = {
       copyright: '© RestaurantBrowser 2024. All rights reserved.'
     },
     login: {
-      appName: 'RestaurantBrowser',
+      appName: 'РестоПошук',
       title: 'Login',
       emailPlaceholder: 'Enter email',
       passwordPlaceholder: 'Enter password',
@@ -809,13 +809,13 @@ export const translations = {
       },
     },
     footer: {
-      appName: 'RestaurantBrowser',
+      appName: 'РестоПошук',
       aboutUs: 'About Us',
       home: 'Home',
       restaurants: 'Restaurants',
       favourites: 'Favourites',
       followUs: 'Follow Us',
-      copyright: 'RestaurantBrowser 2024. All rights reserved.'
+      copyright: 'РестоПошук 2025. All rights reserved.'
     },
     home: {
       mainContent: {

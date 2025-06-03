@@ -98,7 +98,7 @@ const Header = () => {
       <div className="header">
         <div className="header-logo-name">
           <Image width={42} height={42} src={HeaderRestaurantLogo} />
-          <span>RestaurantBrowser</span>
+          <span>РестоПошук</span>
           {isAdmin && (
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Image width={32} style={{ marginLeft: 15 }} height={32} src={AdminLogo} />

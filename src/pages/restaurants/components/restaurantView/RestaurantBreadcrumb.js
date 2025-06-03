@@ -2,7 +2,7 @@ import React from 'react';
 import { Breadcrumb } from 'antd';
 import {useLanguage} from "../../../../contexts/LanguageContext";
 
-const RestaurantBreadcrumb = () => {
+const RestaurantBreadcrumb = ({restaurant}) => {
   const { text } = useLanguage();
 
   return (
@@ -17,7 +17,7 @@ const RestaurantBreadcrumb = () => {
         },
         {
           className: "restaurant-view-breadcrumb-title",
-          title: text.restaurantView.breadcrumb.restaurant,
+          title: <div>{text.restaurantView.breadcrumb.restaurant + " " + restaurant.name}</div>,
         },
       ]}
     />

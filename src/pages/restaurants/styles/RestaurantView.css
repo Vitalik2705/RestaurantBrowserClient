@@ -11,10 +11,6 @@
     font-size: 20px;
 }
 
-.restaurant-view-breadcrumb-title {
-    font-size: 18px;
-}
-
 .restaurant-view-breadcrumb-link:hover {
     background-color: #fd8340 !important;
     color: white !important;
