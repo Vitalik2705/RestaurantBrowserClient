@@ -1,7 +1,7 @@
 import axios from "axios";
 import {message} from "antd";
 
-const API_URL = 'http://localhost:8080/api/auth';
+const API_URL = 'https://new2-ecfgbmgwfnhch4bp.westus3-01.azurewebsites.net/api/auth';
 const token = localStorage.getItem('token');
 const headers = {
     'Authorization': `Bearer ${token}`

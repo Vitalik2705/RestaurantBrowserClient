@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const RESERVATION_API_URL = 'http://localhost:8080/api/reservations';
+const RESERVATION_API_URL = 'https://new2-ecfgbmgwfnhch4bp.westus3-01.azurewebsites.net/api/reservations';
 
 const getHeaders = () => ({
   'Authorization': `Bearer ${localStorage.getItem('token')}`

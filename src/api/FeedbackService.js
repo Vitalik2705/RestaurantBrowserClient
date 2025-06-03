@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:8080/api/feedbacks';
+const API_URL = 'https://new2-ecfgbmgwfnhch4bp.westus3-01.azurewebsites.net/api/feedbacks';
 const token = localStorage.getItem('token');
 const headers = {
     'Authorization': `Bearer ${token}`

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const MESSAGE_API_URL = 'http://localhost:8080/api/messages';
+const MESSAGE_API_URL = 'https://new2-ecfgbmgwfnhch4bp.westus3-01.azurewebsites.net/api/messages';
 
 const getHeaders = () => ({
   'Authorization': `Bearer ${localStorage.getItem('token')}`
